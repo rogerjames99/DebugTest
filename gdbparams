@@ -1,0 +1,5 @@
+/home/roger/.platformio/packages/toolchain-gccarmnoneeabi@1.50401.190816/bin/arm-none-eabi-gdb -q --directory /home/roger/.platformio/.cache/.piodebug-mehjgw4_ 
+--directory /home/roger/DebugTest 
+-l 10 
+--interpreter=mi2 
+-q /home/roger/DebugTest/.pio/build/teensy41/firmware.elf
