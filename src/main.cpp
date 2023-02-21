@@ -24,10 +24,22 @@ void test_function()
 
 void setup()
 {
+    delay(30000);
+    while (!Serial)
+    {
+        delay(100);
+    } // wait for Serial Monitor to be ready
+    Serial.printf("Serial is ready\n");
+    Serial.flush();
+    
     while (!SerialUSB1)
     {
         delay(100);
+        Serial.printf("Tick\n");
     } // wait for Serial Debugger to be ready
+    Serial.printf("SerialUSB1 is ready\n");
+    Serial.flush();
+
     // Launch the GDB debugger stub
 #ifdef GDB_IS_ENABLED
     debug.begin(SerialUSB1);
@@ -35,12 +47,6 @@ void setup()
     halt_cpu();
 #endif
     blinker(10);
-    while (!Serial)
-    {
-        delay(100);
-    } // wait for Serial Monitor to be ready
-    Serial.printf("Serial is ready\n");
-    Serial.flush();
 }
 
 void loop()
