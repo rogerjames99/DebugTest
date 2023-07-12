@@ -1,3 +1,0 @@
-[submodule "lib/TeensyDebug"]
-	path = lib/TeensyDebug
-	url = https://github.com/ftrias/TeensyDebug
