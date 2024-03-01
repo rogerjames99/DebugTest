@@ -1,5 +1,3 @@
-#pragma GCC optimize("O0")
-
 #include <Arduino.h>
 #include "TeensyDebug.h"
 
@@ -22,9 +20,15 @@ void setup()
 
     // Launch the GDB debugger stub
 #ifdef GDB_IS_ENABLED
+    Serial.printf("Calling debug.begin\n");
     debug.begin(SerialUSB1);
+    Serial.printf("Back from debug.begin\n");
     delay(100);
+    Serial.printf("Calling halt_cpu\n");
+    Serial.flush();
     halt_cpu();
+    Serial.printf("After halt_cpu\n");
+    Serial.flush();
 #endif
 }
 
